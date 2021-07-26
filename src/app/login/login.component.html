@@ -1,0 +1,102 @@
+<div class="body">
+    <div class="container">
+        <div class="row">
+            <h3 class="text-center">Sistema Categorización</h3>
+            
+            <div class="col-sm-6 col-md-5 hidden-xs hidden-sm">
+                <img src="https://www.upeu.edu.pe/wp-content/uploads/2017/06/Logo-UPeU.png" alt=""
+                    class="center-block img-responsive" />
+            </div>
+
+            
+            <div class="col-md-1 hidden-xs hidden-sm">
+                <div class="border-login"></div>
+            </div>
+
+           
+               
+    
+    
+    
+                <div class="col-sm-12 col-xs-12 col-md-4" *ngIf="modo">
+                    <div class="space-top">
+    
+    
+                        
+    
+                        <form class="form-signin" class="form-horizontal" (ngSubmit)="iniciosesion()">
+    
+                            <label class=""> email </label>
+    
+                            <input type="text" class="form-control" placeholder="" name="email" [(ngModel)]="email" required autofocus>
+    
+                            <label class=""> Contraseña </label>
+                            <input type="password" class="form-control" placeholder="" name="password" [(ngModel)]="password" required>
+    
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                Entrar
+                            </button>
+    
+    
+    
+    
+                        </form>
+                    </div>
+    
+                    <p class="text-center"> No tienes una cuenta? <button (click)="login()" >
+                            Registrate!</button></p>
+    
+    
+                   
+    
+                </div>
+            
+
+
+          
+              
+    
+    
+    
+                <div class="col-sm-12 col-xs-12 col-md-4" *ngIf="!modo">
+                    <div class="space-top">
+    
+    
+                        
+    
+                        <form class="form-signin" class="form-horizontal" (ngSubmit)="agregar()">
+    
+                            <label class=""> Nombre </label>
+                            <input type="text" class="form-control" placeholder="" required autofocus name="nombre" [(ngModel)]="usuario.nombre"  required>
+
+                            <label class=""> Apellido </label>
+                            <input type="text" class="form-control" placeholder="" name="apellido" [(ngModel)]="usuario.apellido"  required>
+
+                            <label class=""> Correo Electronico </label>
+                            <input type="email" class="form-control" placeholder="" name="email" [(ngModel)]="usuario.email" required >
+
+                          
+    
+                            <label class=""> Contraseña </label>
+                            <input type="password" class="form-control" placeholder="" name="password" [(ngModel)]="usuario.password"  required>
+    
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                Registrar
+                            </button>
+    
+    
+    
+    
+                        </form>
+                    </div>
+    
+                    <p class="text-center"> Ya tiene una cuenta? <button (click)="login()" >
+                            Inicia Sesion</button></p>
+    
+    
+                   
+    
+            </div>
+        </div>
+    </div>
+</div>

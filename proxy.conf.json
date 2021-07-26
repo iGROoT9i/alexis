@@ -1,0 +1,7 @@
+{
+    "/v0/b/alexistemp-a8349.appspot.com/*":{
+        "target": "https://firebasestorage.googleapis.com",
+        "secure": true,
+        "changeOrigin": true
+    }
+}

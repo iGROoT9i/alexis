@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "alexistemp-a8349": {
+      "hosting": {
+        "alexis": [
+          "alexistemp-a8349"
+        ]
+      }
+    }
+  }
+}

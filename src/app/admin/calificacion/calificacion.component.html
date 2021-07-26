@@ -1,0 +1,901 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-3 mt-5">
+            <button type="button" class="btn btn-dark" (click)="volver()">Regresar</button>
+        </div>
+        <div class="col-7 mt-5">
+
+            <h2>Evaluando a: {{docente}}</h2>
+        </div>
+
+
+        <div class="list-group col-4 mt-5">
+            <button type="button" class="list-group-item list-group-item-action" (click)="cambiar('1')">I. FORMACIÓN
+                ACADÉMICA PROFESIONAL</button>
+            <button type="button" class="list-group-item list-group-item-action" (click)="cambiar('2')">II. EXPERIENCIA
+                LABORAL Y PROFESIONAL</button>
+            <button type="button" class="list-group-item list-group-item-action" (click)="cambiar('3')">III. CAPACIDAD
+                DOCENTE</button>
+            <button type="button" class="list-group-item list-group-item-action" (click)="cambiar('4')">IV. DESEMPEÑO
+                DOCENTE</button>
+            <button type="button" class="list-group-item list-group-item-action" (click)="cambiar('5')">V. CAPACITACIÓN
+                PROFESIONAL</button>
+            <button type="button" class="list-group-item list-group-item-action" (click)="cambiar('6')">VI.
+                INVESTIGACIÓN Y APORTE AL CONOCIMIENTO</button>
+            <button type="button" class="list-group-item list-group-item-action" (click)="cambiar('7')">VII. VINCULACIÓN
+                CON EL MEDIO (PROYECCIÓN SOCIAL Y EXTENSIÓN CULTURAL)</button>
+            <button type="button" class="list-group-item list-group-item-action" (click)="cambiar('8')">VIII. APORTES Y
+                LOGROS</button>
+
+            <br>
+            <br>
+            <button type="button btn-warning" class="list-group-item list-group-item-action" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Ver
+                Documentos</button>
+
+
+        </div>
+
+
+        <div class=" col-8 mt-5">
+
+            <div class="asociado" *ngIf="principal1">
+
+
+                <button type="button" class="btn btn-primary m-3" *ngIf="registro" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Registrar Calificacion
+                </button>
+
+               
+
+                
+                <div class="bucle" *ngFor="let item of Calificacionlist">
+
+    
+
+
+                    <form *ngIf="item.docente == user">
+
+                        
+                    <button type="button" (click)="editar(item)" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#editarBackdrop">
+                        Editar Calificacion
+                    </button>
+                        <table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+                            <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>Items </th>
+                                    <th> </th>
+                                    <th> Puntaje</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="align-left">1.GRADOS</td>
+                                    <td class="align-left item">
+                                        <ul>
+                                            <li>1.1    Posdoctorado (8 puntos c/año)</li>
+                                            <li>1.2    Grado de doctor en su especialidad y/o de la unidad académica (6
+                                                puntos
+                                                c/año)</li>
+                                            <li>1.3    Grado de doctor (6 puntos c/año)</li>
+                                            <li>1.4    Grado de maestro / magíster en su especialidad y/o de la unidad
+                                                académica
+                                                (incluye especialidad médica) (4 puntos c/año)</li>
+                                            <li>1.5    Grado de maestro / magister afín a la unidad académica (4 puntos
+                                                c/año)
+                                            </li>
+                                            <li>1.6    Grado de bachiller en su especialidad (2 puntos c/año)</li>
+                                            <li>1.7    Otro grado de bachiller (2 puntos c/año)</li>
+                                        </ul>
+                                    </td>
+                                    <td class="align-left"></td>
+
+                                    <td class="item">
+                                        <ul>
+                                            <li><input type="number" name="puntaje1" [(ngModel)]="item.puntaje1"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje2" [(ngModel)]="item.puntaje2"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje3" [(ngModel)]="item.puntaje3"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje4" [(ngModel)]="item.puntaje4"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje5" [(ngModel)]="item.puntaje5"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje6" [(ngModel)]="item.puntaje6"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje7" [(ngModel)]="item.puntaje7"
+                                                    readonly>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                </tr>
+
+                                <br>
+
+                                <tr>
+                                    <td class="align-left">2.TÍTULOS</td>
+                                    <td class="align-left item">
+                                        <ul>
+                                            <li>2.1    Título profesional de la unidad académica (1 punto c/año)</li>
+                                            <li>2.2    Título profesional afín de la unidad académica (1 punto c/año)
+                                            </li>
+                                            <li>2.3    Título profesional de otra especialidad (1 punto c/año)</li>
+
+                                        </ul>
+                                    </td>
+                                    <td class="align-left"></td>
+
+                                    <td class="item">
+                                        <ul>
+                                            <li><input type="number" name="puntaje8" [(ngModel)]="item.puntaje8"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje9" [(ngModel)]="item.puntaje9"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje10" [(ngModel)]="item.puntaje10"
+                                                    readonly>
+                                            </li>
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+
+
+                                <br>
+
+
+                                <tr>
+                                    <td class="align-left">3.ESPECIALIZACIÓN / DIPLOMATURAS</td>
+                                    <td class="align-left item">
+                                        <ul>
+                                            <li>3.1    Título de segunda especialidad profesional (2 puntos c/año).</li>
+                                            <li>3.2    Título de Especialidad, Residencia en salud y similar (2 puntos
+                                                c/año).
+                                            </li>
+                                            <li>3.3    Diplomaturas de la especialidad profesional (2 puntos c/24
+                                                creditos)
+                                            </li>
+                                            <li>3.4    Diplomaturas instrumentales a la docencia (Pedagogía, Didáctica,
+                                                Estadística, Investigación, Tecnologías Información y otros similares)
+                                                (De
+                                                15 -
+                                                20 créditos: 1 punto c/u; 21 - 23 créditos: 1.5 puntos c/u; 24 a más
+                                                créditos: 2
+                                                puntos c/u)</li>
+                                            <li>3.5    Diplomaturas en general (De 15 - 20 créditos: 0.5 puntos c/u; 21
+                                                -
+                                                24: 1
+                                                punto c/u)</li>
+
+                                        </ul>
+                                    </td>
+                                    <td class="align-left"></td>
+
+                                    <td class="item">
+                                        <ul>
+                                            <li><input type="number" name="puntaje11" [(ngModel)]="item.puntaje11"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje12" [(ngModel)]="item.puntaje12"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje13" [(ngModel)]="item.puntaje13"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje14" [(ngModel)]="item.puntaje14"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje15" [(ngModel)]="item.puntaje15"
+                                                    readonly>
+                                            </li>
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                                <br>
+
+
+                                <tr>
+                                    <td class="align-left">4.ESTUDIOS</td>
+                                    <td class="align-left item">
+                                        <ul>
+                                            <li>4.1    Estudios concluidos de posdoctorado (3 puntos c/año)</li>
+                                            <li>4.2    Estudios concluidos doctorado (2 puntos c/año)</li>
+                                            <li>4.3    Estudios concluidos de maestría (1 punto c/año)</li>
+                                            <li>4.4    Estudios concluidos de segunda especialidad profesional (1 punto
+                                                c/año)
+                                            </li>
+                                            <li>4.5    Estudios concluidos de especialidad, residencia en salud y
+                                                similar (1
+                                                punto c/semestre)</li>
+                                            <li>1.6    Grado de bachiller en su especialidad (2 puntos c/año)</li>
+                                        </ul>
+                                    </td>
+                                    <td class="align-left"></td>
+
+                                    <td class="item">
+                                        <ul>
+                                            <li><input type="number" name="puntaje16" [(ngModel)]="item.puntaje16"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje17" [(ngModel)]="item.puntaje17"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje18" [(ngModel)]="item.puntaje18"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje19" [(ngModel)]="item.puntaje19"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje20" [(ngModel)]="item.puntaje20"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje21" [(ngModel)]="item.puntaje21"
+                                                    readonly>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                </tr>
+
+
+
+                                <br>
+                                <tr>
+                                    <td class="align-left">5.IDIOMAS EXTRANJEROS Y/O NATIVOS</td>
+                                    <td class="align-left item">
+                                        <ul>
+                                            <li>1.1    Posdoctorado (8 puntos c/año)</li>
+                                            <li>5.2    Nivel Avanzado (3 puntos c/u)</li>
+                                            <li>5.3    Nivel Intermedio (2 puntos c/u)</li>
+                                            <li>5.4    Nivel Básico (1 punto c/u)</li>
+
+                                        </ul>
+                                    </td>
+                                    <td class="align-left"></td>
+
+                                    <td class="item">
+                                        <ul>
+                                            <li><input type="number" name="puntaje22" [(ngModel)]="item.puntaje22"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje23" [(ngModel)]="item.puntaje23"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje24" [(ngModel)]="item.puntaje24"
+                                                    readonly>
+                                            </li>
+                                            <li><input type="number" name="puntaje25" [(ngModel)]="item.puntaje25"
+                                                    readonly>
+                                            </li>
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+                        
+                    </form>
+                </div>
+
+
+
+
+                <!-- Button trigger modal -->
+              
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Registrar Calificacion</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="registro">
+                                    <form>
+                                        <table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+                                            <thead>
+                                                <tr>
+                                                    <th>Factor</th>
+                                                    <th>Items </th>
+                                                    <th> </th>
+                                                    <th> Puntaje</th>
+                
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="align-left">1.GRADOS</td>
+                                                    <td class="align-left item">
+                                                        <ul>
+                                                            <li>1.1    Posdoctorado (8 puntos c/año)</li>
+                                                            <li>1.2    Grado de doctor en su especialidad y/o de la unidad académica (6
+                                                                puntos
+                                                                c/año)</li>
+                                                            <li>1.3    Grado de doctor (6 puntos c/año)</li>
+                                                            <li>1.4    Grado de maestro / magíster en su especialidad y/o de la unidad
+                                                                académica
+                                                                (incluye especialidad médica) (4 puntos c/año)</li>
+                                                            <li>1.5    Grado de maestro / magister afín a la unidad académica (4 puntos
+                                                                c/año)
+                                                            </li>
+                                                            <li>1.6    Grado de bachiller en su especialidad (2 puntos c/año)</li>
+                                                            <li>1.7    Otro grado de bachiller (2 puntos c/año)</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="align-left"></td>
+                
+                                                    <td class="item">
+                                                        <ul>
+                                                            <li><input type="number" name="puntaje1" [(ngModel)]="puntaje.puntaje1">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje2" [(ngModel)]="puntaje.puntaje2">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje3" [(ngModel)]="puntaje.puntaje3">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje4" [(ngModel)]="puntaje.puntaje4">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje5" [(ngModel)]="puntaje.puntaje5">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje6" [(ngModel)]="puntaje.puntaje6">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje7" [(ngModel)]="puntaje.puntaje7">
+                                                            </li>
+                                                        </ul>
+                
+                                                    </td>
+                                                </tr>
+                
+                                                <br>
+                
+                                                <tr>
+                                                    <td class="align-left">2.TÍTULOS</td>
+                                                    <td class="align-left item">
+                                                        <ul>
+                                                            <li>2.1    Título profesional de la unidad académica (1 punto c/año)</li>
+                                                            <li>2.2    Título profesional afín de la unidad académica (1 punto c/año)
+                                                            </li>
+                                                            <li>2.3    Título profesional de otra especialidad (1 punto c/año)</li>
+                
+                                                        </ul>
+                                                    </td>
+                                                    <td class="align-left"></td>
+                
+                                                    <td class="item">
+                                                        <ul>
+                                                            <li><input type="number" name="puntaje8" [(ngModel)]="puntaje.puntaje8">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje9" [(ngModel)]="puntaje.puntaje9">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje10" [(ngModel)]="puntaje.puntaje10">
+                                                            </li>
+                
+                                                        </ul>
+                
+                                                    </td>
+                                                </tr>
+                
+                
+                                                <br>
+                
+                
+                                                <tr>
+                                                    <td class="align-left">3.ESPECIALIZACIÓN / DIPLOMATURAS</td>
+                                                    <td class="align-left item">
+                                                        <ul>
+                                                            <li>3.1    Título de segunda especialidad profesional (2 puntos c/año).</li>
+                                                            <li>3.2    Título de Especialidad, Residencia en salud y similar (2 puntos
+                                                                c/año).
+                                                            </li>
+                                                            <li>3.3    Diplomaturas de la especialidad profesional (2 puntos c/24
+                                                                creditos)
+                                                            </li>
+                                                            <li>3.4    Diplomaturas instrumentales a la docencia (Pedagogía, Didáctica,
+                                                                Estadística, Investigación, Tecnologías Información y otros similares)
+                                                                (De
+                                                                15 -
+                                                                20 créditos: 1 punto c/u; 21 - 23 créditos: 1.5 puntos c/u; 24 a más
+                                                                créditos: 2
+                                                                puntos c/u)</li>
+                                                            <li>3.5    Diplomaturas en general (De 15 - 20 créditos: 0.5 puntos c/u; 21
+                                                                -
+                                                                24: 1
+                                                                punto c/u)</li>
+                
+                                                        </ul>
+                                                    </td>
+                                                    <td class="align-left"></td>
+                
+                                                    <td class="item">
+                                                        <ul>
+                                                            <li><input type="number" name="puntaje11" [(ngModel)]="puntaje.puntaje11">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje12" [(ngModel)]="puntaje.puntaje12">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje13" [(ngModel)]="puntaje.puntaje13">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje14" [(ngModel)]="puntaje.puntaje14">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje15" [(ngModel)]="puntaje.puntaje15">
+                                                            </li>
+                
+                                                        </ul>
+                
+                                                    </td>
+                                                </tr>
+                                                <br>
+                
+                
+                                                <tr>
+                                                    <td class="align-left">4.ESTUDIOS</td>
+                                                    <td class="align-left item">
+                                                        <ul>
+                                                            <li>4.1    Estudios concluidos de posdoctorado (3 puntos c/año)</li>
+                                                            <li>4.2    Estudios concluidos doctorado (2 puntos c/año)</li>
+                                                            <li>4.3    Estudios concluidos de maestría (1 punto c/año)</li>
+                                                            <li>4.4    Estudios concluidos de segunda especialidad profesional (1 punto
+                                                                c/año)
+                                                            </li>
+                                                            <li>4.5    Estudios concluidos de especialidad, residencia en salud y
+                                                                similar (1
+                                                                punto c/semestre)</li>
+                                                            <li>1.6    Grado de bachiller en su especialidad (2 puntos c/año)</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="align-left"></td>
+                
+                                                    <td class="item">
+                                                        <ul>
+                                                            <li><input type="number" name="puntaje16" [(ngModel)]="puntaje.puntaje16">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje17" [(ngModel)]="puntaje.puntaje17">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje18" [(ngModel)]="puntaje.puntaje18">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje19" [(ngModel)]="puntaje.puntaje19">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje20" [(ngModel)]="puntaje.puntaje20">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje21" [(ngModel)]="puntaje.puntaje21">
+                                                            </li>
+                                                        </ul>
+                
+                                                    </td>
+                                                </tr>
+                
+                
+                
+                                                <br>
+                                                <tr>
+                                                    <td class="align-left">5.IDIOMAS EXTRANJEROS Y/O NATIVOS</td>
+                                                    <td class="align-left item">
+                                                        <ul>
+                                                            <li>1.1    Posdoctorado (8 puntos c/año)</li>
+                                                            <li>5.2    Nivel Avanzado (3 puntos c/u)</li>
+                                                            <li>5.3    Nivel Intermedio (2 puntos c/u)</li>
+                                                            <li>5.4    Nivel Básico (1 punto c/u)</li>
+                
+                                                        </ul>
+                                                    </td>
+                                                    <td class="align-left"></td>
+                
+                                                    <td class="item">
+                                                        <ul>
+                                                            <li><input type="number" name="puntaje22" [(ngModel)]="puntaje.puntaje22">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje23" [(ngModel)]="puntaje.puntaje23">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje24" [(ngModel)]="puntaje.puntaje24">
+                                                            </li>
+                                                            <li><input type="number" name="puntaje25" [(ngModel)]="puntaje.puntaje25">
+                                                            </li>
+                
+                                                        </ul>
+                
+                                                    </td>
+                                                </tr>
+                
+                                            </tbody>
+                                        </table>
+                
+                                        <div class="modal-footer">
+                                            <button type="submit" (click)="registrarcalificacion()"
+                                            class="btn btn-dark m-5 float-right">Guardar</button>
+
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="editarBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Editar Calificacion</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="registro">
+                  <form>
+                      <table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+                          <thead>
+                              <tr>
+                                  <th>Factor</th>
+                                  <th>Items </th>
+                                  <th> </th>
+                                  <th> Puntaje</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td class="align-left">1.GRADOS</td>
+                                  <td class="align-left item">
+                                      <ul>
+                                          <li>1.1    Posdoctorado (8 puntos c/año)</li>
+                                          <li>1.2    Grado de doctor en su especialidad y/o de la unidad académica (6
+                                              puntos
+                                              c/año)</li>
+                                          <li>1.3    Grado de doctor (6 puntos c/año)</li>
+                                          <li>1.4    Grado de maestro / magíster en su especialidad y/o de la unidad
+                                              académica
+                                              (incluye especialidad médica) (4 puntos c/año)</li>
+                                          <li>1.5    Grado de maestro / magister afín a la unidad académica (4 puntos
+                                              c/año)
+                                          </li>
+                                          <li>1.6    Grado de bachiller en su especialidad (2 puntos c/año)</li>
+                                          <li>1.7    Otro grado de bachiller (2 puntos c/año)</li>
+                                      </ul>
+                                  </td>
+                                  <td class="align-left"></td>
+
+                                  <td class="item">
+                                      <ul>
+                                          <li><input type="number" name="puntaje1" [(ngModel)]="Calificacionedit.puntaje1">
+                                          </li>
+                                          <li><input type="number" name="puntaje2" [(ngModel)]="Calificacionedit.puntaje2">
+                                          </li>
+                                          <li><input type="number" name="puntaje3" [(ngModel)]="Calificacionedit.puntaje3">
+                                          </li>
+                                          <li><input type="number" name="puntaje4" [(ngModel)]="Calificacionedit.puntaje4">
+                                          </li>
+                                          <li><input type="number" name="puntaje5" [(ngModel)]="Calificacionedit.puntaje5">
+                                          </li>
+                                          <li><input type="number" name="puntaje6" [(ngModel)]="Calificacionedit.puntaje6">
+                                          </li>
+                                          <li><input type="number" name="puntaje7" [(ngModel)]="Calificacionedit.puntaje7">
+                                          </li>
+                                      </ul>
+
+                                  </td>
+                              </tr>
+
+                              <br>
+
+                              <tr>
+                                  <td class="align-left">2.TÍTULOS</td>
+                                  <td class="align-left item">
+                                      <ul>
+                                          <li>2.1    Título profesional de la unidad académica (1 punto c/año)</li>
+                                          <li>2.2    Título profesional afín de la unidad académica (1 punto c/año)
+                                          </li>
+                                          <li>2.3    Título profesional de otra especialidad (1 punto c/año)</li>
+
+                                      </ul>
+                                  </td>
+                                  <td class="align-left"></td>
+
+                                  <td class="item">
+                                      <ul>
+                                          <li><input type="number" name="puntaje8" [(ngModel)]="Calificacionedit.puntaje8">
+                                          </li>
+                                          <li><input type="number" name="puntaje9" [(ngModel)]="Calificacionedit.puntaje9">
+                                          </li>
+                                          <li><input type="number" name="puntaje10" [(ngModel)]="Calificacionedit.puntaje10">
+                                          </li>
+
+                                      </ul>
+
+                                  </td>
+                              </tr>
+
+
+                              <br>
+
+
+                              <tr>
+                                  <td class="align-left">3.ESPECIALIZACIÓN / DIPLOMATURAS</td>
+                                  <td class="align-left item">
+                                      <ul>
+                                          <li>3.1    Título de segunda especialidad profesional (2 puntos c/año).</li>
+                                          <li>3.2    Título de Especialidad, Residencia en salud y similar (2 puntos
+                                              c/año).
+                                          </li>
+                                          <li>3.3    Diplomaturas de la especialidad profesional (2 puntos c/24
+                                              creditos)
+                                          </li>
+                                          <li>3.4    Diplomaturas instrumentales a la docencia (Pedagogía, Didáctica,
+                                              Estadística, Investigación, Tecnologías Información y otros similares)
+                                              (De
+                                              15 -
+                                              20 créditos: 1 punto c/u; 21 - 23 créditos: 1.5 puntos c/u; 24 a más
+                                              créditos: 2
+                                              puntos c/u)</li>
+                                          <li>3.5    Diplomaturas en general (De 15 - 20 créditos: 0.5 puntos c/u; 21
+                                              -
+                                              24: 1
+                                              punto c/u)</li>
+
+                                      </ul>
+                                  </td>
+                                  <td class="align-left"></td>
+
+                                  <td class="item">
+                                      <ul>
+                                          <li><input type="number" name="puntaje11" [(ngModel)]="Calificacionedit.puntaje11">
+                                          </li>
+                                          <li><input type="number" name="puntaje12" [(ngModel)]="Calificacionedit.puntaje12">
+                                          </li>
+                                          <li><input type="number" name="puntaje13" [(ngModel)]="Calificacionedit.puntaje13">
+                                          </li>
+                                          <li><input type="number" name="puntaje14" [(ngModel)]="Calificacionedit.puntaje14">
+                                          </li>
+                                          <li><input type="number" name="puntaje15" [(ngModel)]="Calificacionedit.puntaje15">
+                                          </li>
+
+                                      </ul>
+
+                                  </td>
+                              </tr>
+                              <br>
+
+
+                              <tr>
+                                  <td class="align-left">4.ESTUDIOS</td>
+                                  <td class="align-left item">
+                                      <ul>
+                                          <li>4.1    Estudios concluidos de posdoctorado (3 puntos c/año)</li>
+                                          <li>4.2    Estudios concluidos doctorado (2 puntos c/año)</li>
+                                          <li>4.3    Estudios concluidos de maestría (1 punto c/año)</li>
+                                          <li>4.4    Estudios concluidos de segunda especialidad profesional (1 punto
+                                              c/año)
+                                          </li>
+                                          <li>4.5    Estudios concluidos de especialidad, residencia en salud y
+                                              similar (1
+                                              punto c/semestre)</li>
+                                          <li>1.6    Grado de bachiller en su especialidad (2 puntos c/año)</li>
+                                      </ul>
+                                  </td>
+                                  <td class="align-left"></td>
+
+                                  <td class="item">
+                                      <ul>
+                                          <li><input type="number" name="puntaje16" [(ngModel)]="Calificacionedit.puntaje16">
+                                          </li>
+                                          <li><input type="number" name="puntaje17" [(ngModel)]="Calificacionedit.puntaje17">
+                                          </li>
+                                          <li><input type="number" name="puntaje18" [(ngModel)]="Calificacionedit.puntaje18">
+                                          </li>
+                                          <li><input type="number" name="puntaje19" [(ngModel)]="Calificacionedit.puntaje19">
+                                          </li>
+                                          <li><input type="number" name="puntaje20" [(ngModel)]="Calificacionedit.puntaje20">
+                                          </li>
+                                          <li><input type="number" name="puntaje21" [(ngModel)]="Calificacionedit.puntaje21">
+                                          </li>
+                                      </ul>
+
+                                  </td>
+                              </tr>
+
+
+
+                              <br>
+                              <tr>
+                                  <td class="align-left">5.IDIOMAS EXTRANJEROS Y/O NATIVOS</td>
+                                  <td class="align-left item">
+                                      <ul>
+                                          <li>1.1    Posdoctorado (8 puntos c/año)</li>
+                                          <li>5.2    Nivel Avanzado (3 puntos c/u)</li>
+                                          <li>5.3    Nivel Intermedio (2 puntos c/u)</li>
+                                          <li>5.4    Nivel Básico (1 punto c/u)</li>
+
+                                      </ul>
+                                  </td>
+                                  <td class="align-left"></td>
+
+                                  <td class="item">
+                                      <ul>
+                                          <li><input type="number" name="puntaje22" [(ngModel)]="Calificacionedit.puntaje22">
+                                          </li>
+                                          <li><input type="number" name="puntaje23" [(ngModel)]="Calificacionedit.puntaje23">
+                                          </li>
+                                          <li><input type="number" name="puntaje24" [(ngModel)]="Calificacionedit.puntaje24">
+                                          </li>
+                                          <li><input type="number" name="puntaje25" [(ngModel)]="Calificacionedit.puntaje25">
+                                          </li>
+
+                                      </ul>
+
+                                  </td>
+                              </tr>
+
+                          </tbody>
+                      </table>
+
+                      <div class="modal-footer">
+                          <button type="submit" (click)="editarForm()"
+                          class="btn btn-dark m-5 float-right" data-bs-dismiss="modal">Guardar Cambios</button>
+
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                      
+                  </form>
+              </div>
+          </div>
+       
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+            </div>
+            <div class="asociado" *ngIf="principal2">
+
+                2
+
+            </div>
+            <div class="asociado" *ngIf="principal3">
+
+                3
+
+            </div>
+            <div class="asociado" *ngIf="principal4">
+
+                4
+
+            </div>
+            <div class="asociado" *ngIf="principal5">
+
+                5
+
+            </div>
+            <div class="asociado" *ngIf="principal6">
+
+                6
+
+            </div>
+            <div class="asociado" *ngIf="principal7">
+
+                7
+
+            </div>
+            <div class="asociado" *ngIf="principal8">
+
+                8
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasTopLabel">Offcanvas top</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+
+                <table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Lista de Documentos</th>
+
+                            <th> </th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of items">
+                        <tr *ngIf="item.docente == user">
+                            <td class="align-left">{{item.name}}</td>
+
+
+                            <td><i class="fa fa-eye float-right manito mr-4" aria-hidden="true" (click)="ver(item.name)"
+                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></td>
+                            <td><i class="fa fa-trash float-right text-danger manito" aria-hidden="true"
+                                    (click)="eliminar(item.id)">borrar</i></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content ">
+                    <div class="modal-header ">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <a href="{{profileUrl | async}}"> {{profileUrl | async}}</a>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

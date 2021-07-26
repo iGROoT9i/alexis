@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <div class="row">
+
+
+        <h2>Docentes </h2>
+
+        <div class="col-12 mt-5">
+            <table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+                <thead>
+                    <tr>
+                        <th>Nombres</th>
+
+                        <th>Apellidos </th>
+                        <th>Email </th>
+                        <th> acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of items">
+                    <tr>
+                        <td class="align-left">{{item.nombre}}</td>
+                        <td class="align-left">{{item.apellido}}</td>
+                        <td class="align-left">{{item.email}}</td>
+
+                        <td>
+                            <i class="fa fa-pencil float-right manito mr-4" aria-hidden="true" (click)="seleccionar(item)"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal">Evaluar</i>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
